@@ -12,6 +12,7 @@ public class NodeJS {
 
 
                 int Option,Exit;
+                String kali;
 
                List main = new List();
 
@@ -31,11 +32,9 @@ public class NodeJS {
 
                             "     ----------------Main Menu----------------\n"+"\n"+
 
-                                    "1. Add at the beginning  \n"+"\n"+
+                                    "1. Add at the beginning or at the end \n"+"\n"+
 
-                                    "2. Add at the end	\n"+"\n"+
-
-                                    "3. Search by id.  \n"+"\n"+
+                                    "2. Search by id.  \n"+"\n"+
 
                                     "4. Show all sorted by id." +  "\n"+"\n"+
 
@@ -54,19 +53,25 @@ public class NodeJS {
                         case 1:
 
                             try{
+                                Object[] tyAdd = new Object[]{"Beginning","End"};
+
+                                Object xAdd = JOptionPane.showInputDialog(null,
+                                        "Please choose at the beginbing or at the end",
+                                        "Gender Selection",
+                                        JOptionPane.QUESTION_MESSAGE,null,tyAdd ,tyAdd[0]);
+
+                                kali = xAdd.toString();
+
+                                if (kali.equals("Beginning"))
 
                                 main.setAddBegin();
 
-                            }catch(NegativeArraySizeException a){
+                                else
+                                     if (kali.equals("End"));
 
-                                JOptionPane.showMessageDialog(null, "DO NOT INSERT NEGATIVE NUMBERS "
-                                        + "FOR THE ARRAY LENGHT");
+                                main.setAddEnd();
 
-                            }catch(NumberFormatException b){
 
-                                JOptionPane.showMessageDialog(null, " DO NOT INSERT LETTERS,SIGNS \n"
-                                        + " OR AN EXAGGERATED AMOUNT OF  \n"
-                                        + " NUMBERS IN THE ARRAY PLEASE ");
                             }catch(NullPointerException d){
 
                                 d.printStackTrace();
@@ -76,13 +81,8 @@ public class NodeJS {
 
                             break;
 
+
                         case 2:
-
-                                main.setAddEnd();
-
-                            break;
-
-                        case 3:
 
 
                                 try{
@@ -95,11 +95,16 @@ public class NodeJS {
                                     JOptionPane.showMessageDialog(null, "DO NOT INSERT LETERS, SIGNS\n"
                                             + "OR EXAGGERATE AMOUNT OF NUMBERS \n"
                                             +" IN THE LICENSE PLATE PLEASE");
+                                }catch(NullPointerException d){
+
+                                    d.printStackTrace();
+
+                                    JOptionPane.showMessageDialog(null, "please be logic ");
                                 }
 
                             break;
 
-                        case 4:
+                        case 3:
 
                                 try{
 
@@ -112,7 +117,7 @@ public class NodeJS {
 
                             break;
 
-                        case 5:
+                        case 4:
 
 
                                 try{
@@ -129,22 +134,13 @@ public class NodeJS {
 
                             break;
 
-                        case 6:
-
-
-                            try{
+                        case 5:
 
                               main.Average();
 
-
-
-                            }catch(ArrayIndexOutOfBoundsException c){
-                                JOptionPane.showMessageDialog(null,"Please be logic");
-                            }
-
                             break;
 
-                        case 7:
+                        case 6:
 
 
                             try{
@@ -160,7 +156,7 @@ public class NodeJS {
 
                             break;
 
-                        case 8:
+                        case 7:
                             Exit=JOptionPane.showConfirmDialog(null, "¿Do you want to exit from the Menu?");
                             if (Exit==0) {
 
@@ -176,7 +172,7 @@ public class NodeJS {
                     }
 
 
-                }while (Option != 8);
+                }while (Option != 7);
 
 
                 System.exit(0);

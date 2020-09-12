@@ -2,13 +2,10 @@ import javax.swing.*;
 
 public class List {
 
-    //Attribute
     Nodex header;
 
-    //Constructor method: Creates the list.
     public List(){ header=null; }
 
-    //Determinate the amount of elements of the list
     public int getLonglist(){
         
         int cont=0;
@@ -31,8 +28,6 @@ public class List {
         }
     }
 
-    //Este método retorna un apuntador donde se encuentre
-    //un código de producto dado.
     public Nodex getSearchId(int id){
 
         Nodex buscar=null;
@@ -63,9 +58,9 @@ public class List {
         int day = 0;
         int month;
         int year;
-        int weight;
-        int height;
-        int h2;
+        float weight;
+        float height;
+        float h2;
         int glucose;
         float hemoglobine;
 
@@ -88,7 +83,7 @@ public class List {
 
         name = JOptionPane.showInputDialog("Enter the patient name: ");
 
-        eps = JOptionPane.showInputDialog("Enter the patient eps: ");
+        eps = JOptionPane.showInputDialog("Enter the patient eps name: ");
 
         Object[] tyGender = new Object[]{"M","F"};
 
@@ -104,20 +99,20 @@ public class List {
 
         day = Integer.parseInt(JOptionPane.showInputDialog(null, "Please enter the patient birthday"));
 
-        month = Integer.parseInt(JOptionPane.showInputDialog("Please enter the patient birthmonth"));
+        month = Integer.parseInt(JOptionPane.showInputDialog("Please enter the patient birt month"));
 
-        year = Integer.parseInt(JOptionPane.showInputDialog("Please enter the patient birthyear"));
+        year = Integer.parseInt(JOptionPane.showInputDialog("Please enter the patient birth year"));
 
-        weight = Integer.parseInt(JOptionPane.showInputDialog("Please enter the patient weight"));
+        weight = Float.parseFloat(JOptionPane.showInputDialog("Please enter the patient weight(Kg)"));
 
-        height = Integer.parseInt(JOptionPane.showInputDialog("Please enter the patient height"));
+        height = Float.parseFloat(JOptionPane.showInputDialog("Please enter the patient height(m)"));
 
-        glucose = Integer.parseInt(JOptionPane.showInputDialog(null, "Please enter the glucose leve"));
+        glucose = Integer.parseInt(JOptionPane.showInputDialog(null, "Please enter the glucose level(mg/dl)"));
 
         hemoglobine = Float.parseFloat(JOptionPane.showInputDialog(null,
-                "Please enter the patient hemoglobine level "));
+                "Please enter the patient hemoglobin level (g/dl)"));
 
-        h2 = (height* height);
+        h2 = (float) Math.pow(height,2);
 
        float bmi = (float)(weight / (h2));
 
@@ -141,7 +136,7 @@ public class List {
             info.js = header;
             header = info;
             JOptionPane.showMessageDialog(null,
-                    "Element added at the begin of the list");
+                    "Element added at the beginning of the list");
 
 
         }
@@ -206,7 +201,7 @@ public class List {
         if(header==null)
 
             JOptionPane.showMessageDialog(null,
-                    "La lista esta vacía!!!");
+                    "The list is empty!");
 
         else{
 
@@ -220,7 +215,6 @@ public class List {
         }
     }
 
-    //Este método retonar un nodo apuntando detrás de p.
     public Nodex getBack(Nodex p){
 
        Nodex  q=header;
@@ -318,13 +312,10 @@ public class List {
 
                     if((q.id)>(q.js.id)){
 
-                        //Copio la información del menor que esta en el nodo
-                        //al que apunta q
                         temp=new Nodex(q.id, q.name, q.eps , q.gender , q.day , q.month , q.year ,
                                        q.weight , q.height , q.glucose
                                        , q.hemoglobine , q.bmi);
-                        //Asigno a q la información del mayor
-                        //al que apunta q.sig
+
                         q.id = q.js.id;
                         q.name = q.js.name;
                         q.eps = q.js.eps;
@@ -338,8 +329,7 @@ public class List {
                         q.hemoglobine = q.js.hemoglobine;
                         q.bmi = q.js.bmi;
 
-                        //Ahorar asignamos a q.sig la información
-                        //del menor que estaba en q y que almacenamos en temp
+
                         q.js.id = temp.id;
                         q.js.name = temp.name;
                         q.js.eps = temp.eps;
@@ -371,7 +361,7 @@ public class List {
         if(header==null)
 
             JOptionPane.showMessageDialog(null,
-                    "Lista vacia!");
+                    "Empty List!");
 
         else if( header.js == null )
 
@@ -469,7 +459,7 @@ public class List {
         }
     }
 
-    float getSumHemoglobine(){
+    float getSumHemoglobin(){
 
         float sum=0;
 
@@ -485,14 +475,14 @@ public class List {
         }
     }
 
-    float getHemoglobineAverage(){
+    float getHemoglobinAverage(){
 
         if (header==null)
             return 0;
 
         else{
 
-            float sum=getSumHemoglobine();
+            float sum=getSumHemoglobin();
             float n=(float) getLonglist();
             return (sum/n);
 
@@ -502,8 +492,8 @@ public class List {
     public  void Average(){
 
 
-        JOptionPane.showMessageDialog(null, "Te average of ibm is: " + getIbmAverage() + "\n" +
-                                    "Te average of glucose is: " + getGlucoseAverage() + "\n" +
-                                    "Te average of hemoglobine is: " + getHemoglobineAverage());
+        JOptionPane.showMessageDialog(null, "Te average of ibm is: " + getIbmAverage()+"Kg/m²"  + "\n" +
+                                    "Te average of glucose is: " + getGlucoseAverage() +"g/dl"+ "\n" +
+                                    "Te average of hemoglobin is: " + getHemoglobinAverage()+"g/dl");
     }
 }

@@ -1,5 +1,4 @@
 import javax.swing.*;
-//ID PACIENTE - NOMBRE – EPS – GENERO - FECHA DE NACIMIENTO – PESO – ESTATURA -NIVELES DE GLUCOSA Y HEMOGLOBINA.
 
 public class Nodex {
 
@@ -10,19 +9,18 @@ public class Nodex {
     public int day;
     public int month;
     public int year;
-    public int weight;
-    public int height;
+    public float weight;
+    public float height;
     public int glucose;
     public float hemoglobine;
-
-    Nodex js;
-
     //body mass index
     public float bmi;
 
+    Nodex js;
+
     public Nodex(int id, String name, String eps,
                  String gender, int day, int month,
-                 int year, int weight, int height,
+                 int year, float weight, float height,
                  int glucose, float hemoglobine , float bmi) {
 
         this.id = id;
@@ -50,84 +48,82 @@ public class Nodex {
 
         String info="The patient information is: \n";
 
-        info += "ID: "+ id +"\n";
+        info += "Patient Id: "+ id +"\n";
 
-        info += "Name: "+ name +"\n";
+        info += "Patient name: "+ name +"\n";
 
-        info += "EPS: "+ eps +"\n";
+        info += "Patient health provider: "+ eps +"\n";
 
-        info += "Gender: "+ gender +"\n";
+        info += "Patient Gender: "+ gender +"\n";
 
-        info += "Patient born information: "+ eps +"\n";
+        info += "Patient birth information: "+ eps +"\n";
 
-        info += "Day: "+ day +"\n";
+        info += "Patient birthDay: "+ day +"\n";
 
-        info += "Month: "+ month +"\n";
+        info += "Patient birthMonth: "+ month +"\n";
 
-        info += "Year: "+ year +"\n";
+        info += "Patient birthYear: "+ year +"\n";
 
-        info += "Age: "+ age +"\n";
+        info += "Patient current Age: "+ age +"\n";
 
-        info += "Weight: "+ weight +"\n";
+        info += "Patient Weight: "+ weight +"\n";
 
-        info += "Height: "+ height +"\n";
+        info += "Patient Height: "+ height +"\n";
 
          if ((glucose >= 75)&&(glucose <= 100))
-             info += "Glucose: "+ glucose + "Optimo" + "\n";
+             info += "Glucose: "+ glucose +"g/dl"+ "Optimum" + "\n";
 
          else if ((glucose > 100) && (glucose <= 125))
-             info += "Glucose: "+ glucose + "PreDiabetes" + "\n";
+             info += "Glucose: "+ glucose+"g/dl" + "PreDiabetes" + "\n";
 
          else if (glucose > 125)
-             info += "Glucose: " + glucose + "Diabetes" + "\n";
+             info += "Glucose: " + glucose+"g/dl" + "Diabetes" + "\n";
 
 
         if ((gender.equals("M") && (hemoglobine < 13)))
-            info += "Hemoglobine: "+ hemoglobine + "Bajo" + "\n";
+            info += "Hemoglobin: "+ hemoglobine+"g/dl" + "low level" + "\n";
 
-        else if ((gender.equals("M") && (hemoglobine > 13 && hemoglobine <17)))
-            info += "Hemogloibe: "+ hemoglobine + "Optimo" + "\n";
+        else if ((gender.equals("M") && (hemoglobine > 13 && hemoglobine <=17)))
+            info += "Hemoglobin: "+ hemoglobine+"g/dl" + "Optimum level" + "\n";
 
         else if(gender.equals("M") && (hemoglobine > 17))
-            info += "Hemogloibe: "+ hemoglobine + "Alto" + "\n";
+            info += "Hemoglobin: "+ hemoglobine+"g/dl" + "high level" + "\n";
 
         if ((gender.equals("F") && (hemoglobine < 12)))
-            info += "Hemoglobine: "+ hemoglobine + "Bajo" + "\n";
+            info += "Hemoglobin: "+ hemoglobine +"g/dl"+ "low level" + "\n";
 
-        else if ((gender.equals("F") && (hemoglobine > 12 && hemoglobine <15)))
-            info += "Hemogloibe: "+ hemoglobine + "Optimo" + "\n";
+        else if ((gender.equals("F") && (hemoglobine > 12 && hemoglobine <=15)))
+            info += "Hemoglobin: "+ hemoglobine +"g/dl"+ "Optimum level" + "\n";
 
         else if(gender.equals("F") && (hemoglobine > 15))
-            info += "Hemogloibe: "+ hemoglobine + "Alto" + "\n";
+            info += "Hemoglobin: "+ hemoglobine +"g/dl"+ "high level" + "\n";
 
 
         if (bmi >15 && bmi<=18.4)
 
-            info += "BMI: "+ bmi +"Weight Insuficiente"+"\n";
+            info += "BMI: "+ bmi+"Kg/m²"  +"Insufficient Weight "+"\n";
 
         else if (bmi >= 18.5 && bmi <=24.9)
 
-            info += "BMI: "+ bmi +"Peso normal"+"\n";
+            info += "BMI: "+ bmi+"Kg/m²"  +" normal weight"+"\n";
 
         else  if (bmi >= 25 && bmi <= 29.9)
-            info += "BMI: "+ bmi +"SobrePeso"+"\n";
+            info += "BMI: "+ bmi +"Kg/m²" +" Overweight"+"\n";
 
         else  if (bmi >= 30 && bmi <= 39.9)
-            info += "BMI: "+ bmi +"Obesidad clinica"+"\n";
+            info += "BMI: "+ bmi +"Kg/m²" +" Clinical Obesity"+"\n";
 
         else  if (bmi >= 40 && bmi <= 49.9)
-            info += "BMI: "+ bmi +"Obesidad Mordiba"+"\n";
+            info += "BMI: "+ bmi+"Kg/m²"  +"Morbid Obesity"+"\n";
 
         else  if (bmi >= 50 && bmi <= 59.9)
-            info += "BMI: "+ bmi +"Super obesidad mordiba"+"\n";
+            info += "BMI: "+ bmi+"Kg/m²" +"Super  morbid obesity"+"\n";
 
         else  if (bmi >= 60 && bmi <= 64.9)
-            info += "BMI: "+ bmi +"Super super obesidad "+"\n";
+            info += "BMI: "+ bmi+"Kg/m²" +"Super super obesity "+"\n";
 
         else  if (bmi > 65)
-            info += "BMI: "+ bmi +"Triple obesidad"+"\n";
-
-
+            info += "BMI: "+ bmi+"Kg/m²" +"Triple obesity"+"\n";
 
         JOptionPane.showMessageDialog(null, info);
     }
